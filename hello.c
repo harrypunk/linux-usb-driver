@@ -1,15 +1,14 @@
 #include <linux/init.h>
 #include <linux/module.h>
-MODULE_LICENSE("Dual BSD/GPL");
+MODULE_LICENSE("GPL");
 
-static init hello_init(void){
-  printk(KERn_ALERT "Hello, world\n");
+static int my_init(void) {
+  printk(KERN_ALERT "Hello \n");
   return 0;
 }
-
-static void hello_exit(void){
-  printk(KERN_ALERT,"Goodby \n");
+static void my_exit(void) {
+  printk(KERN_ALERT "Goodbye");
+  return;
 }
-
-module_init(hello_init)
-module_exit(hello_exit)
+module_init(my_init);
+module_exit(my_exit);
